@@ -10,7 +10,7 @@ export default function UserList({ users }) {
     }, [filter])
 
     const filteredUsers = useMemo(() => {
-        return filterUsers(users);
+        return filterUsers();
     }, [users, filterUsers])
 
     return (
@@ -19,8 +19,8 @@ export default function UserList({ users }) {
             <input
                 type="text"
                 value={filter}
-                onChange={(e) => setFilter(e.target.value)} 
-                placeholder="Search User..."/>
+                onChange={(e) => setFilter(e.target.value)}
+                placeholder="Search User..." />
             <ul>
                 {filteredUsers.map(user => (
                     <li key={user.id}>{user.name}</li>
